@@ -2,6 +2,7 @@ import { __prod__ } from "./contants";
 import { Post } from "./entities/Post";
 import { MikroORM } from "@mikro-orm/core";
 import path from 'path';
+import { User } from "./entities/User";
 
 require('dotenv').config()
 
@@ -10,7 +11,7 @@ export default {
     path: path.join(__dirname,'./migrations'),
     pattern: /^[\w-]+\d+\.[tj]s$/,
   },
-  entities: [Post],
+  entities: [Post, User],
   dbName: process.env.DB_NAME,
   clientUrl: process.env.DB_HOST,
   type: process.env.DB_DRIVER,
